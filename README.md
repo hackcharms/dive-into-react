@@ -32,6 +32,8 @@ This improves readability and makes it easier to visualize the UI you're buildin
 ### Use Cases of React:
 React is widely used for building single-page applications (SPAs) same as [Angular](https://angular.dev), where the page content updates dynamically without full page reloads.
 
+### [NPM Trends](https://npmtrends.com/angular-vs-react-vs-vue)
+
 ## Creating new projects using [Vite](https://vitejs.dev/guide/)
 `yarn create vite my-react-app --template react`
 
@@ -41,6 +43,7 @@ React is widely used for building single-page applications (SPAs) same as [Angul
 
 `npm run dev`
 
+### Code introduction
 # React + Vite
 
 This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
