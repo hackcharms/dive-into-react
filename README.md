@@ -32,9 +32,33 @@ This improves readability and makes it easier to visualize the UI you're buildin
 ### Use Cases of React:
 React is widely used for building single-page applications (SPAs) same as [Angular](https://angular.dev), where the page content updates dynamically without full page reloads.
 
-### [NPM Trends](https://npmtrends.com/angular-vs-react-vs-vue)
+### React vs Angular
+React and Angular are both popular choices for front-end development, but they have some key differences:
 
-## Creating new projects using [Vite](https://vitejs.dev/guide/)
+**Here's a breakdown:**
+
+- **Type:** React is a JavaScript library, while Angular is a full-fledged TypeScript framework.
+- **Structure:** Angular enforces a stricter, opinionated structure based on MVC (Model-View-Controller). React is more flexible, allowing for different architectural patterns.
+- **Data Binding:** Angular uses two-way data binding, meaning changes in the UI are reflected in the data and vice versa. React uses one-way data binding, requiring a more explicit flow of data updates.
+- **Performance:** React's virtual DOM can potentially lead to faster performance, especially for complex UIs.
+- **Learning Curve:** React is often considered easier to learn initially, while Angular's structure can have a steeper learning curve.
+- **Ecosystem:** Both have vast ecosystems, but React often has more third-party libraries available.
+### Choosing the right one depends on your project:
+#### Angular is a good fit for:
+- Large, enterprise-grade applications.
+- Projects that benefit from a structured approach.
+- Teams that value stability and built-in features.
+#### React is a good fit for:
+- Smaller, more dynamic applications.
+- Projects requiring a high degree of flexibility.
+- Teams comfortable with a more custom setup.
+
+### [NPM Trends](https://npmtrends.com/angular-vs-react-vs-vue)
+## [Creating new projects Old way](https://legacy.reactjs.org/docs/create-a-new-react-app.html)
+
+`npx create-react-app my-app`
+
+## Creating new projects using [Vite](https://vitejs.dev/guide/)([recommended](https://react.dev/learn/start-a-new-react-project))
 `yarn create vite my-react-app --template react`
 
 `cd my-react-app`
