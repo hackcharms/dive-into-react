@@ -1,9 +1,10 @@
-import React from "react";
+import React, { useState } from "react";
 import "./App.css";
 function App() {
-  const msg = "Hello World! I'm a variable";
-  function myFunc(msg) {
-    alert("myFunc called " + msg);
+  const [count, setCount] = useState(0);
+  console.log("App created");
+  function incrementCount() {
+    setCount(count + 1);
   }
   const products = [
     { title: "Cabbage", isFruit: false, id: 1 },
@@ -11,23 +12,30 @@ function App() {
     { title: "Apple", isFruit: true, id: 3 },
   ];
   return (
-    // <React.Fragment>
     <>
-      {/* onclick => lowercase
-    onClick => camel case
-    OnClick => pascal case
-    on_click => snake case
-    ON_CLICK => constant case
-    on-click=kebab case */}
-
-      <h1 className="card">{msg}</h1>
-      <button onClick={() => myFunc("hello")}>Click me</button>
-      {/* <button onClick={myFunc}>Click me</button> */}
+      <h1 className="card"> Parent count = {count}</h1>
+      <div style={{ outline: "1px solid green" }}>
+        <h3> Child component</h3>
+        <Button
+          onClickHandle={incrementCount}
+          count={count}
+          label="Increment1"
+        ></Button>
+        <Button
+          onClickHandle={incrementCount}
+          count={count}
+          label="Increment2"
+        ></Button>
+      </div>
+      {/* <Button>Increment</Button> */}
     </>
   );
 }
 export default App;
-
-function Button() {
-  return <button type="button">Btn</button>;
+function Button({ label, onClickHandle, count }) {
+  return (
+    <button onClick={onClickHandle}>
+      {label} + {count}
+    </button>
+  );
 }
