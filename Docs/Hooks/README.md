@@ -59,3 +59,9 @@ function TodoList({ todos, tab, theme }) {
 ```
 
 #### Use memo
+
+### [Rules of Hooks](https://react.dev/reference/rules/rules-of-hooks#only-call-hooks-from-react-functions)
+Hooks are defined using JavaScript functions, but they represent a special type of reusable UI logic with restrictions on where they can be called.
+
+- Only call Hooks at the top level
+- Only call Hooks from React functions
