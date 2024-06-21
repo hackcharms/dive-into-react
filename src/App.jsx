@@ -4,32 +4,55 @@ import viteLogo from '/vite.svg'
 import './App.css'
 
 function App() {
-  const [count, setCount] = useState(0)
-
+  const [todos, setTodos] = useState(["todo1", "todo2", "todo3"]);
+  const [todoTitle, setTodoTitle] = useState("");
+  function updateTodoTitle(event) {
+    // console.log(event);
+    setTodoTitle(event.target.value);
+  }
+  function addTodo() {
+    if (!todoTitle) return;
+    setTodos([...todos, todoTitle]);
+    setTodoTitle("");
+  }
+  function deleteTodo(todoTitle) {
+    setTodos(todos.filter((todo) => todo != todoTitle));
+    // console.log(todoTitle);
+  }
   return (
-    <>
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
+    <div className="main-wrapper">
+      <div className="main">
+        <h1>My Todos</h1>
+        <div>
+          <input type="text" value={todoTitle} onChange={updateTodoTitle} />
+          <button onClick={addTodo}>Add todo</button>
+        </div>
+        <div>
+          <ul style={{ listStyle: "none" }}>
+            {todos.map((todo, index) => {
+              return (
+                <Todo
+                  onClick={() => deleteTodo(todo)}
+                  title={todo}
+                  key={todo}
+                />
+              );
+            })}
+          </ul>
+        </div>
       </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
+    </div>
+  );
 }
 
-export default App
+export default App;
+function Todo({ title, onClick }) {
+  return (
+    <>
+      <div className="todo-wrapper">
+        <span className="title">{title}</span>
+        <button onClick={onClick}>Remove</button>
+      </div>
+    </>
+  );
+}
